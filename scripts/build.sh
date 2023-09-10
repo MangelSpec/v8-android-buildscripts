@@ -7,12 +7,15 @@ BUILD_TYPE="Release"
 ARCH=$2
 
 GN_ARGS_BASE="
-  is_component_build=false
+  is_component_build=true
   use_custom_libcxx=false
   icu_use_data_file=false
   treat_warnings_as_errors=false
   default_min_sdk_version=21
   v8_enable_sandbox=false
+  v8_enable_slow_dchecks=false
+  v8_enable_verify_heap=false
+  v8_enable_handle_zapping=false
 "
 
 if [[ ${PLATFORM} = "macos_android" ]]; then
