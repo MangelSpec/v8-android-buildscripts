@@ -103,7 +103,7 @@ function buildArch()
   local target=''
   local target_ext=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="libv8android"
+    target="v8_static_library"
     target_ext=".a"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
