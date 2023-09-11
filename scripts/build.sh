@@ -149,8 +149,8 @@ function copyLib()
   local target_ext=''
   local lib_dir=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="libv8android"
-    target_ext=".so"
+    target="v8"
+    target_ext=".a"
     lib_dir="${platform_arch}"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
