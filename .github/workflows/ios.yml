@@ -1,42 +1,42 @@
-name: iOS build
+# name: iOS build
 
-on:
-  push:
-  workflow_dispatch:
+# on:
+#   push:
+#   workflow_dispatch:
 
-env:
-  DEPOT_TOOLS_UPDATE: 0
+# env:
+#   DEPOT_TOOLS_UPDATE: 0
 
-jobs:
-  build:
-    runs-on: macos-11
-    env:
-      NO_INTL: false
-      NO_JIT: true
+# jobs:
+#   build:
+#     runs-on: macos-11
+#     env:
+#       NO_INTL: false
+#       NO_JIT: true
 
-    steps:
-    - uses: actions/checkout@v3
+#     steps:
+#     - uses: actions/checkout@v3
 
-    - name: Export settings from npm package
-      run: |
-        npm run export_npm_env
+#     - name: Export settings from npm package
+#       run: |
+#         npm run export_npm_env
 
-    - name: Setup V8 build environment
-      run: |
-        brew install coreutils ninja
-        scripts/setup.sh -r ${V8_VERSION} ios
+#     - name: Setup V8 build environment
+#       run: |
+#         brew install coreutils ninja
+#         scripts/setup.sh -r ${V8_VERSION} ios
 
-    - name: Patch V8
-      run: |
-        scripts/patch.sh ios
+#     - name: Patch V8
+#       run: |
+#         scripts/patch.sh ios
 
-    - name: Build V8
-      run: |
-        scripts/build.sh ios
-        scripts/archive.sh ios
-        tar -cvf dist.tar dist
+#     - name: Build V8
+#       run: |
+#         scripts/build.sh ios
+#         scripts/archive.sh ios
+#         tar -cvf dist.tar dist
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: dist
-        path: dist.tar
+#     - uses: actions/upload-artifact@v3
+#       with:
+#         name: dist
+#         path: dist.tar

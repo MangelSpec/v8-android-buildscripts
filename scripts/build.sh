@@ -104,7 +104,7 @@ function buildArch()
   local target=''
   local target_ext=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="v8"
+    target="v8_monolith"
     target_ext=".a"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
@@ -149,7 +149,7 @@ function copyLib()
   local target_ext=''
   local lib_dir=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="v8"
+    target="v8_monolith"
     target_ext=".a"
     lib_dir="${platform_arch}"
   elif [[ ${PLATFORM} = "ios" ]]; then
@@ -201,10 +201,10 @@ function copyMkcodecache()
 if [[ ${ARCH} ]]; then
   buildArch "${ARCH}"
 elif [[ ${PLATFORM} = "android" ]]; then
-  buildArch "arm"
-  buildArch "x86"
+  #buildArch "arm"
+  #buildArch "x86"
   buildArch "arm64"
-  buildArch "x64"
+  #buildArch "x64"
 elif [[ ${PLATFORM} = "ios" ]]; then
   buildArch "arm64" "device"
   buildArch "arm64" "simulator"
