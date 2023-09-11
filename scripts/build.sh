@@ -7,7 +7,8 @@ BUILD_TYPE="Release"
 ARCH=$2
 
 GN_ARGS_BASE="
-  is_component_build=true
+  v8_static_library=true
+  is_component_build=false
   use_custom_libcxx=false
   icu_use_data_file=false
   treat_warnings_as_errors=false
@@ -103,7 +104,7 @@ function buildArch()
   local target=''
   local target_ext=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="v8_static_library"
+    target="v8_monolith"
     target_ext=".a"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
