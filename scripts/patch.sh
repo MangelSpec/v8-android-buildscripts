@@ -6,7 +6,7 @@ source $(dirname $0)/env.sh
 ######################################################################################
 V8_PATCHSET_ANDROID=(
   # V8 shared library support
-  "v8_shared_library.patch"
+  #"v8_shared_library.patch"
 
   # https://github.com/Kudo/react-native-v8/issues/27
   "workaround_jsi_object_freeze.patch"
@@ -32,7 +32,7 @@ V8_PATCHSET_ANDROID=(
 
 V8_PATCHSET_IOS=(
   # V8 shared library support
-  "v8_shared_library_ios.patch"
+  #"v8_shared_library_ios.patch"
 
   # https://github.com/Kudo/react-native-v8/issues/27
   "workaround_jsi_object_freeze.patch"
