@@ -104,7 +104,7 @@ function buildArch()
   local target_ext=''
   if [[ ${PLATFORM} = "android" ]]; then
     target="libv8android"
-    target_ext=".so"
+    target_ext=".a"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
     target_ext=".dylib"
