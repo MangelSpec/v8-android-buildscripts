@@ -123,7 +123,6 @@ function buildArch()
   else
     echo "Build v8 ${arch} variant NO_INTL=${NO_INTL} NO_JIT=${NO_JIT}"
     output_dir="out.v8.${arch}"
-    gn ls "${output_dir}"
     gn gen --args="${GN_ARGS_BASE} ${GN_ARGS_BUILD_TYPE} target_cpu=\"${arch}\"" "${output_dir}"
   fi
 
