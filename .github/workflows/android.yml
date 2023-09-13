@@ -13,7 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        variant: [intl, nointl, jit-intl, jit-nointl]
+        variant: [nointl, jit-nointl]
+        # variant: [intl, nointl, jit-intl, jit-nointl]
 
     container:
       image: kudo/ubuntu-nonroot:20.04

@@ -18,6 +18,7 @@ GN_ARGS_BASE="
   v8_enable_slow_dchecks=false
   v8_enable_verify_heap=false
   v8_enable_handle_zapping=false
+  v8_use_external_startup_data=false
 "
 
 if [[ ${PLATFORM} = "macos_android" ]]; then
@@ -41,11 +42,11 @@ if [[ ${NO_JIT} = "true" ]]; then
   GN_ARGS_BASE="${GN_ARGS_BASE} v8_enable_lite_mode=true"
 fi
 
-if [[ ${EXTERNAL_STARTUP_DATA} = "true" || ${TOOLS_ONLY} = "true" ]]; then
-  GN_ARGS_BASE="${GN_ARGS_BASE} v8_use_external_startup_data=true"
-else
-  GN_ARGS_BASE="${GN_ARGS_BASE} v8_use_external_startup_data=false"
-fi
+# if [[ ${EXTERNAL_STARTUP_DATA} = "true" || ${TOOLS_ONLY} = "true" ]]; then
+#   GN_ARGS_BASE="${GN_ARGS_BASE} v8_use_external_startup_data=true"
+# else
+#   GN_ARGS_BASE="${GN_ARGS_BASE} v8_use_external_startup_data=false"
+# fi
 
 if [[ "$BUILD_TYPE" = "Debug" ]]
 then
