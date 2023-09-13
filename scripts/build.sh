@@ -163,7 +163,8 @@ function copyLib()
   fi
 
   mkdir -p "${BUILD_DIR}/lib/${lib_dir}"
-  cp -f "${output_dir}/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
+  #cp -f "${output_dir}/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
+  cp -f "obj/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
 
   if [[ -d "${output_dir}/lib.unstripped" ]]; then
     mkdir -p "${BUILD_DIR}/lib.unstripped/${lib_dir}"
