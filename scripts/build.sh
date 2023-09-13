@@ -151,15 +151,9 @@ function copyLib()
   local target_ext=''
   local lib_dir=''
   if [[ ${PLATFORM} = "android" ]]; then
-    target="libv8_libbase"
+    target="libv8_monolith"
     target_ext=".a"
     lib_dir="${platform_arch}"
-
-    mkdir -p "${BUILD_DIR}/lib/${lib_dir}"
-
-    cp -f "${output_dir}/libv8_libbase.a" "${BUILD_DIR}/lib/${lib_dir}/libv8_libbase.a"
-    cp -f "${output_dir}/libv8_libplatform.a" "${BUILD_DIR}/lib/${lib_dir}/libv8_libplatform.a"
-    cp -f "${output_dir}/libv8_monolith.a" "${BUILD_DIR}/lib/${lib_dir}/libv8_monolith.a"
   elif [[ ${PLATFORM} = "ios" ]]; then
     target="libv8"
     target_ext=".dylib"
@@ -168,13 +162,13 @@ function copyLib()
     exit 1
   fi
 
-  # mkdir -p "${BUILD_DIR}/lib/${lib_dir}"
-  # cp -f "${output_dir}/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
+  mkdir -p "${BUILD_DIR}/lib/${lib_dir}"
+  cp -f "${output_dir}/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
 
-  # if [[ -d "${output_dir}/lib.unstripped" ]]; then
-  #   mkdir -p "${BUILD_DIR}/lib.unstripped/${lib_dir}"
-  #   cp -f "${output_dir}/lib.unstripped/${target}${target_ext}" "${BUILD_DIR}/lib.unstripped/${lib_dir}/${target}${target_ext}"
-  # fi
+  if [[ -d "${output_dir}/lib.unstripped" ]]; then
+    mkdir -p "${BUILD_DIR}/lib.unstripped/${lib_dir}"
+    cp -f "${output_dir}/lib.unstripped/${target}${target_ext}" "${BUILD_DIR}/lib.unstripped/${lib_dir}/${target}${target_ext}"
+  fi
 }
 
 function copySnapshot()
