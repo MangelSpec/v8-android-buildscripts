@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        variant: [nointl, jit-nointl]
+        variant: [jit-nointl]
         # variant: [intl, nointl, jit-intl, jit-nointl]
 
     container:
