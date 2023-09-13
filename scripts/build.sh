@@ -169,7 +169,7 @@ function copyLib()
   find . -name "${target}${target_ext}"
   
   #cp -f "${output_dir}/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
-  cp -f "clang_x64_v8_arm64/obj/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
+  cp -f "${output_dir}/obj/${target}${target_ext}" "${BUILD_DIR}/lib/${lib_dir}/${target}${target_ext}"
 
   if [[ -d "${output_dir}/lib.unstripped" ]]; then
     mkdir -p "${BUILD_DIR}/lib.unstripped/${lib_dir}"
