@@ -112,10 +112,10 @@ if [[ ${PLATFORM} = "android" ]]; then
 
   mkdir -p "${DIST_PACKAGE_DIR}"
   createAAR
-  createUnstrippedLibs
+  #createUnstrippedLibs
   copyHeaders
-  copyTools
-  copySnapshotBlobIfNeeded
+  #copyTools
+  #copySnapshotBlobIfNeeded
 elif [[ ${PLATFORM} = "ios" ]]; then
   createXcframework
   copyHeaders
