@@ -135,8 +135,8 @@ function buildArch()
  else
     date ; ninja ${NINJA_PARAMS} -C "${output_dir}" ${target} run_mksnapshot_default mkcodecache_group ; date
     copyLib "${arch}" "${output_dir}" "${ios_env}"
-    copySnapshot "${arch}" "${output_dir}"
-    copyMkcodecache "${arch}" "${output_dir}"
+    #copySnapshot "${arch}" "${output_dir}"
+    #copyMkcodecache "${arch}" "${output_dir}"
   fi
 }
 
